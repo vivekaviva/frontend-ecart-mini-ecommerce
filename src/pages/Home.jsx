@@ -1,11 +1,10 @@
 import { Fragment, useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    console.log("Environment Variables:", process.env);
-    // const apiUrl = process.env.REACT_APP_API_URL || "Not Defined";
     const apiUrl = "http://localhost:8000";
     console.log("API URL:", apiUrl);
 
@@ -25,12 +24,21 @@ export default function Home() {
       })
       .catch((err) => console.log("Error", err));
   }, []);
+
   console.log("products", products);
   return (
     <Fragment>
       <div className="container">
         <h1 id="products_heading mt-5">Latest Products</h1>
       </div>
+
+      <section id="products" className="container mt-5">
+        <div className="row">
+          {products.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </section>
     </Fragment>
   );
 }

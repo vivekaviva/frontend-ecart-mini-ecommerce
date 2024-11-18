@@ -12,11 +12,15 @@ export default function ProductCard({ product }) {
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">
-              <Link to={"/prduct/" + product.id}>{product.title}</Link>
+              <Link to={"/product/" + product.id}>{product.title}</Link>
             </h5>
             <p className="brandColor">{product.brand}</p>
             <p className="productPrice">Price: ${product.price}</p>
-            <p className="rating">Rating: ${product.rating}</p>
+            <p className="rating">Rating: {product.rating}/5</p>
+            <p className="availability">
+              Availability: {product.availabilityStatus}
+            </p>
+            <p>Discount : {product.discountPercentage}</p>
             <Link
               to={"/product/" + product.id}
               id="view_btn"
