@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./assets/css/ProductCss.css";
 import Home from "./pages/Home";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -13,6 +14,7 @@ function App() {
       <Header cartItems={cartItems} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
 
       <Footer />
